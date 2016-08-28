@@ -4,6 +4,11 @@ class ArticleController extends \BaseController {
 
 	public $layout = 'layouts.master';
 
+	public function __construct()
+	{
+		$this->beforeFilter('csrf', array('on' => array('post', 'put', 'patch', 'delete')));
+	}
+
 	/**
 	 * Display a listing of the resource.
 	 *
